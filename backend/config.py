@@ -11,7 +11,7 @@ class Settings(BaseSettings):
     APP_NAME: str = "Diligent-Jarvis"
     VERSION: str = "2.0.0"
     DEBUG: bool = False
-    PORT: int = 5000
+    PORT: int = 8000
     HOST: str = "0.0.0.0"
 
     # Pinecone Settings
