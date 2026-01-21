@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  jarvis-app:
+    build: .
+    container_name: diligent-jarvis
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+      - ./models:/app/models
+    environment:
+      - PINECONE_API_KEY=${PINECONE_API_KEY}
+      - PINECONE_ENVIRONMENT=${PINECONE_ENVIRONMENT}
+      - PINECONE_INDEX_NAME=${PINECONE_INDEX_NAME}
+      - MODEL_PATH=/app/models/llama-2-7b-chat.gguf
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 8G
